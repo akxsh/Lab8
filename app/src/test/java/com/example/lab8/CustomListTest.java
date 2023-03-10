@@ -50,4 +50,12 @@ public class CustomListTest {
         City city = new City("Estevan", "SK");
         list.addCity(city);
     }
+
+    @Test
+    public void testDelete() throws Exception {
+        list = MockCityList();
+        City city = new City("Estevan", "SK");
+        list.deleteCity(city);
+        Assertions.assertFalse(list.hasCity(new City("Estevan","SK")));
+    }
 }
