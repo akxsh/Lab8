@@ -51,11 +51,26 @@ public class CustomListTest {
         list.addCity(city);
     }
 
+    /**
+     *  deletes the city
+     */
     @Test
     public void testDelete() throws Exception {
         list = MockCityList();
         City city = new City("Estevan", "SK");
         list.deleteCity(city);
         Assertions.assertFalse(list.hasCity(new City("Estevan","SK")));
+    }
+
+    /**
+     *  counts the cities
+     */
+    @Test
+   public  void testCountCities(){
+        list = MockCityList();
+        City city = new City("Edmonton","AB");
+        int listSize = list.getCount();
+        list.addCity(city);
+        assertEquals(list.getCount(),listSize+1);
     }
 }
